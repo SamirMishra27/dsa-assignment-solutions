@@ -220,6 +220,20 @@ Count and return *the number of maximum integers in the matrix after performing 
 
 https://leetcode.com/problems/range-addition-ii/description/
 '''
+class Solution:
+    def maxCount(self, m: int, n: int, ops: List[List[int]]) -> int:
+        if not ops:
+            return m * n
+        elif len(ops) == 1:
+            return ops[0][0] * ops[0][1]
+
+        lowestx, lowesty = 10000, 10000
+        for op in ops:
+            if op[0] < lowestx:
+                lowestx = op[0]
+            if op[1] < lowesty:
+                lowesty = op[1]
+        return lowestx * lowesty
 
 '''
 💡 **Question 8**
