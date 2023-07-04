@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document (Question 4)</title>
+</head>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+nav {
+    width: 100%;
+    /* padding: 0rem 1rem; */
+    padding: 1rem 3rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.links a {
+    color: #241c15;
+    margin: 0rem 1rem;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style-type: none;
+}
+
+.info li {
+    margin: 0rem 0.75rem;
+}
+
+.sales-info a {
+    color: #241c15;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.links a:hover, .sales-info a:hover {
+    color: #007c89;
+    text-decoration: underline;
+    transition: all 200ms;
+}
+
+.log-in, .sign-up, .start-building {
+    font-size: 13px;
+    padding: 13px 25px;
+    border-radius: 30px;
+    font-weight: 600;
+}
+
+.log-in {
+    background-color: white;
+}
+
+.sign-up, .start-building {
+    background-color: #ffe01b;
+}
+
+.hero-section {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.hero-desc {
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start;
+    justify-content: space-evenly;
+
+    padding: 6rem 4rem;
+    width: 50%;
+}
+
+.hero-desc > * {
+    margin: 10px 0px;
+}
+
+.hero-img {
+    width: 50%;
+}
+</style>
+<body>
+    <nav>
+        <section class="links">
+            <a href="#">Products</a>
+            <a href="#">Resources</a>
+            <a href="#">Inspiration</a>
+            <a href="#">Pricing</a>
+        </section>
+        <img src="https://media.discordapp.net/attachments/1125577671481503755/1125599745591738368/Mailchimp_Logo_50-50_Black.jpg" alt="INTUIT MAILCHIMP LOGO" width="auto" height="48px">
+        <ul class="info">
+            <li class="sales-info">
+                <a href="#">
+                    <span>Sales:</span><br>
+                    <span>+1 (800) 315-5939</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <svg fill="#000000" width="36px" height="36px" viewBox="0 0 3 3" version="1.2" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg" overflow="inherit">
+                        <path d="M2.14 1.772a1.083 1.083 0 0 0 0.158 -0.563c0 -0.602 -0.487 -1.089 -1.089 -1.089C0.607 0.12 0.12 0.607 0.12 1.209c0 0.601 0.487 1.088 1.089 1.088 0.206 0 0.399 -0.058 0.563 -0.158L2.513 2.88 2.88 2.513 2.14 1.772zM1.209 1.883c-0.372 -0.001 -0.673 -0.302 -0.674 -0.673A0.675 0.675 0 0 1 1.209 0.536c0.372 0.001 0.673 0.302 0.674 0.674 -0.001 0.371 -0.302 0.672 -0.674 0.673z"/>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="#"><button class="log-in">Log In</button></a>
+            </li>
+            <li>
+                <a href="#"><button class="sign-up">Sign Up</button></a>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        <section class="hero-section">
+            <aside class="hero-desc">
+                <p style="text-transform: uppercase; font-size: 16px;">Landing page creator</p>
+                <h1 style="font-size: 56px; font-weight: 500;">Create must click landing pages</h1>
+                <p style="font-size: 24px;">With Mailchimp's landing page builder, it takes just a few minutes to design beautiful landing pages that make visitors want to join your audience or buy your stuff.</p>
+                <a href="#"><button class="start-building">
+                    Start Building
+                </button></a>
+            </aside>
+            <aside class="hero-img">
+                <img src="https://media.discordapp.net/attachments/1125577671481503755/1125599745067462797/LandingPages-Desktop-01-Hero.webp?width=765&height=605" alt="Hero image laptop">
+            </aside>
+        </section>
+    </main>
+</body>
+</html>
