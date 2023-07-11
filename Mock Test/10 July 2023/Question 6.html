@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document (Question 6 Solution)</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        width: 100%;
+        height: 100vh;
+        background-color: aliceblue;
+
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: white;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #button {
+        width: 9rem;
+        height: 3rem;
+        border-radius: 10px;
+        border: none;
+        background-color: pink;
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    aside {
+        visibility: visible;
+        position: absolute;
+        width: 32rem;
+        height: 28rem;
+        background: white;
+        border-radius: 10px;
+        font-size: 20px;
+        font-weight: 400;
+        color: lightslategray;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 2rem 4rem;
+    }
+
+    #cross {
+        background: none;
+        border: none;
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        top: 8px;
+        right: 8px;
+    }
+</style>
+<body>
+    <button id="button" onclick="openModal(event)">Click me!</button>
+    <aside id="modal">
+        <button id="cross" onclick="closeModal(event)">
+            <svg width="48px" height="48px" viewBox="0 0 0.9 0.9" version="1.1" id="cross" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0.158 0.076 0.45 0.368l0.29 -0.29A0.055 0.055 0 0 1 0.78 0.06a0.06 0.06 0 0 1 0.06 0.06 0.054 0.054 0 0 1 -0.016 0.04L0.53 0.45l0.293 0.293A0.054 0.054 0 0 1 0.84 0.78a0.06 0.06 0 0 1 -0.06 0.06 0.055 0.055 0 0 1 -0.041 -0.016L0.45 0.532l-0.291 0.291A0.055 0.055 0 0 1 0.12 0.84a0.06 0.06 0 0 1 -0.06 -0.06 0.054 0.054 0 0 1 0.016 -0.04L0.37 0.45 0.076 0.157A0.054 0.054 0 0 1 0.06 0.12a0.06 0.06 0 0 1 0.06 -0.06c0.014 0 0.028 0.006 0.038 0.016z"/>
+              </svg>
+        </button>
+        This is a Modal! Click anywhere outside this modal to close it.
+    </aside>
+</body>
+<script>
+    const modal = document.getElementById('modal')
+
+    function closeModal(event) {
+        modal.style.visibility = 'hidden'
+    }
+
+    function openModal(event) {
+        modal.style.visibility = 'visible'
+    }
+
+    document.body.addEventListener('click', function (event) {
+        const modalRect = modal.getBoundingClientRect()
+
+        if (
+            (event.x < modalRect.left ||
+            event.x > modalRect.right) ||
+            (event.y < modalRect.top ||
+            event.y > modalRect.bottom)
+        ) {
+            closeModal(event)
+        }
+    })
+</script>
+</html>

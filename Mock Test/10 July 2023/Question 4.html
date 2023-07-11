@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document (Question 4 Solution)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    screens: {
+                        'xs': '440px'
+                    },
+                    fontFamily: {
+                        'primary': ['Noto Sans', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
+                        'headline': ['Noka Black', 'Noto Sans', 'Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif']
+                    },
+                    colors: {
+                        'gray': '#f6f6f6',
+                        'blurple': '#5865f2',
+                        'deep-blurple': '#404eed',
+                        'not-quite-black-900': '#23272a',
+                        'not-quite-black-800': '#36393f',
+                        'bright-blurple': '#7983f5'
+                    },
+                    boxShadow: {
+                        'btn-hover': '0 8px 15px rgba(0, 0, 0, 0.2)'
+                    },
+                    keyframes: {
+                        'fade-in-scroll-anim': {
+                            '0%': { opacity: 0, transform: 'translateY(25px)' },
+                            '100%': { opacity: 1, transform: 'translateY(0px)' }
+                        }
+                    },
+                    animation: {
+                        'fade-in-scroll': 'fade-in-scroll-anim 0.6s ease-in-out 50ms 1 normal forwards'
+                    }
+                },
+            }
+        }
+    </script>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        width: 100%;
+        height: 100vh;
+        background-color: aliceblue;
+
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: white;
+    }
+</style>
+<body>
+    <!-- Side drawer navbar which will be shown on screen sizes < 1024px -->
+    <nav class="fixed lg:hidden w-80 h-[100vh] bg-white pt-6 pr-8 pb-28  pl-6 rounded-[8px_0px_0px_8px] right-0 z-[110] duration-[400] transition-transform translate-x-[22rem] hidden ease-in-out" id="side-menu">
+        <div class="w-full flex items-center justify-between">
+            <img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6918e57475a843f59f_icon_clyde_black_RGB.svg" alt="Discord logo" width="48px" height="34px">
+            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828774.png" alt="Close" class="w-4 h-4 close-menu-btn">
+        </div>
+        <div class="w-full h-px bg-[#ebedef] mt-6 mb-4"></div>
+        <div class="w-full flex flex-col items-center text-left text-not-quite-black-900">
+            <a href="/" class="w-full pl-3 text-[#00b0f4] rounded-lg bg-gray py-2">Home</a>
+            <a href="https://discord.com/download" class="w-full pl-3 py-2">Download</a>
+            <a href="https://discord.com/nitro" class="w-full pl-3 py-2">Nitro</a>
+            <a href="https://discord.com/servers" class="w-full pl-3 py-2">Discover</a>
+            <a href="https://discord.com/safetycenter" class="w-full pl-3 py-2">Safety</a>
+            <a href="https://discord.com/moderation" class="w-full pl-3 py-2">Mod Academy</a>
+            <a href="https://support.discord.com/hc/en-us" class="w-full pl-3 py-2">Support</a>
+            <a href="https://discord.com/blog" class="w-full pl-3 py-2">Blog</a>
+            <a href="https://discord.com/jobs" class="w-full pl-3 py-2">Careers</a>
+        </div>
+    </nav>
+
+    <!-- Navbar which will be shown on screen sizes >= 1024 px -->
+    <nav class="max-w-[1260px] h-20 mx-auto flex items-center lg:justify-around font-primary justify-between px-5 lg:px-0 bg-deep-blurple">
+        <a href="https://discord.com/">
+            <img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6ca814282eca7172c6_icon_clyde_white_RGB.svg" alt="Discord logo" width="48px" height="34px" class="mr-10">
+        </a>
+        <div class="headder-links hidden lg:flex items-center space-x-[0.625rem] text-center text-white font-semibold text-sm">
+            <a href="https://discord.com/download" class="p-[0.625rem] hover:underline">Download</a>
+            <a href="https://discord.com/nitro" class="p-[0.625rem] hover:underline">Nitro</a>
+            <a href="https://discord.com/servers" class="p-[0.625rem] hover:underline">Discover</a>
+            <a href="https://discord.com/safetycenter" class="p-[0.625rem] hover:underline">Safety</a>
+            <a href="https://support.discord.com/hc/en-us" class="p-[0.625rem] hover:underline">Support</a>
+            <a href="https://discord.com/blog" class="p-[0.625rem] hover:underline">Blog</a>
+            <a href="https://discord.com/jobs" class="p-[0.625rem] hover:underline">Careers</a>
+        </div>
+        <a href="https://discord.com/channels/@me" class="hidden lg:inline-block">
+            <button class="w-[7.75rem] bg-white font-medium rounded-[2.5rem] text-sm px-4 py-[9px] text-not-quite-black-900 hover:text-blurple hover:shadow-btn-hover transition duration-200 ml-10">Open Discord</button>
+        </a>
+
+        <img src="https://cdn-icons-png.flaticon.com/512/8867/8867520.png" alt="" class="hamburger-menu-btn w-8 h-8 block lg:hidden invert">
+    </nav>
+</body>
+<script>
+
+    const sideMenu = document.getElementById('side-menu');
+    document.querySelector('.hamburger-menu-btn')
+    .addEventListener('click', (event) => {
+        sideMenu.classList.remove('hidden');
+        setTimeout(() => {
+            sideMenu.style.transform = 'translateX(0rem)';
+        }, 10);
+    });
+
+    document.querySelector('.close-menu-btn')
+    .addEventListener('click', (event) => {
+        sideMenu.style.transform = 'translateX(22rem)';
+        setTimeout(() => (sideMenu.classList.add('hidden')), 500);
+    });
+</script>
+</html>

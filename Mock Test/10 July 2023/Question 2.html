@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document (Question 2 Solution)</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        width: 100%;
+        height: 100vh;
+        background-color: #FAF0D7;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .form {
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .form > * + * {
+        margin-left: 0.25rem;
+        margin-right: 0.25rem;
+    }
+
+    .inputBox {
+        width: 25rem;
+        height: 2.5rem;
+        border-radius: 10px;
+        outline-color: #9BCDD2;
+        border: 1px solid #9BCDD2;
+        padding: 0.10rem 0.5rem;
+        font-size: 16px;
+    }
+
+    button {
+        width: 6rem;
+        height: 2.5rem;
+        background-color: #ECE5C7;
+        border-radius: 10px;
+        border: none;
+        font-size: 16px;
+        transition: all 200ms;
+        border: 1px solid #C38154;
+    }
+
+    button:hover {
+        background-color: #ebe0ab;
+    }
+
+    .output {
+        padding: 0.5rem 1rem;
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .outputNode {
+        width: 31rem;
+        background-color: #FFE7CE;
+        padding: 0.25rem 0.5rem;
+        border-radius: 8px;
+        text-align: center;
+        font-size: 18px;
+        border: 1px solid #116A7B;
+        margin: 0.35rem 0.1rem;
+    }
+</style>
+<body>
+    <form action="" class="form">
+        <input type="text" name="textInput" id="textInput" width="100px" height="40px" class="inputBox">
+        <button>Submit</button>
+    </form>
+    <aside class="output"></aside>
+</body>
+<script>
+    const submitButton = document.querySelectorAll('button')[0]
+    const textInput = document.getElementById('textInput')
+    const outputElem = document.querySelectorAll('.output')[0]
+
+    submitButton.addEventListener('click', function (event) {
+        event.preventDefault()
+        if (!textInput.value) return
+
+        const enteredText = textInput.value
+        outputElem.innerHTML += `
+        <div class="outputNode">${enteredText}</div>
+        `
+        textInput.value = ''
+    })
+</script>
+</html>

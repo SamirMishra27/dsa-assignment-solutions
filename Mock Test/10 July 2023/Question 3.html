@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document (Question 3 Solution)</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        width: 100%;
+        height: 100vh;
+        background: linear-gradient(to bottom, #27374D, #526D82);
+
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 1rem 3rem;
+
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: white;
+
+        padding: 2rem;
+        overflow-y: auto;
+    }
+
+    .post {
+        width: 20rem;
+        padding: 0.5rem;
+        border-radius: 10px;
+        background: linear-gradient(to bottom, rgb(157 178 191 / 40%), rgb(221 230 237 / 40%));
+    }
+
+    .name {
+        font-weight: 500;
+        font-size: 18px;
+        padding: 0.4rem 0rem;
+    }
+
+    .title {
+        font-weight: 600;
+        background-color: rgb(82 109 130);
+        padding: 0.25rem;
+        border-radius: 6px;
+    }
+
+    .body {
+        text-align: left;
+        background-color: #27374D;
+        padding: 0.25rem;
+        border-radius: 6px;
+        font-size: 14px;
+        max-height: 8rem;
+        overflow: hidden;
+    }
+
+    .post > * + * {
+        margin-top: 0.50rem;
+        margin-bottom: 0.50rem;
+    }
+
+    .post.skeleton {
+        height: 10rem;
+    }
+
+    .name.skeleton {
+        height: 2rem;
+        background-color: #9DB2BF;
+        border-radius: 10px;
+    }
+
+    .title.skeleton {
+        height: 2rem;
+        background-color: #9DB2BF;
+        border-radius: 10px;
+    }
+
+    .body.skeleton {
+        height: 4rem;
+        background-color: #9DB2BF;
+        border-radius: 14px;
+    }
+
+    .post.skeleton, .name.skeleton, .title.skeleton, .body.skeleton {
+        animation: pulse 1.6s ease-out 0s infinite normal forwards;
+    }
+
+    @keyframes pulse {
+        0%, 100% {
+            filter: brightness(1.05);
+        }
+        50% {
+            filter: brightness(1);
+        }
+    }
+</style>
+<body>
+    <!-- <aside class="post">
+        <div class="name">1</div>
+        <div class="title">sunt aut facere repellat provident occaecati excepturi optio reprehenderit</div>
+        <div class="body">quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto</div>
+    </aside> -->
+    <aside class="post skeleton">
+        <div class="name skeleton"></div>
+        <div class="title skeleton"></div>
+        <div class="body skeleton"></div>
+    </aside>
+    <aside class="post skeleton">
+        <div class="name skeleton"></div>
+        <div class="title skeleton"></div>
+        <div class="body skeleton"></div>
+    </aside>
+    <aside class="post skeleton">
+        <div class="name skeleton"></div>
+        <div class="title skeleton"></div>
+        <div class="body skeleton"></div>
+    </aside>
+    <aside class="post skeleton">
+        <div class="name skeleton"></div>
+        <div class="title skeleton"></div>
+        <div class="body skeleton"></div>
+    </aside>
+    <aside class="post skeleton">
+        <div class="name skeleton"></div>
+        <div class="title skeleton"></div>
+        <div class="body skeleton"></div>
+    </aside>
+    <aside class="post skeleton">
+        <div class="name skeleton"></div>
+        <div class="title skeleton"></div>
+        <div class="body skeleton"></div>
+    </aside>
+    <aside class="post skeleton">
+        <div class="name skeleton"></div>
+        <div class="title skeleton"></div>
+        <div class="body skeleton"></div>
+    </aside>
+    <aside class="post skeleton">
+        <div class="name skeleton"></div>
+        <div class="title skeleton"></div>
+        <div class="body skeleton"></div>
+    </aside>
+    <aside class="post skeleton">
+        <div class="name skeleton"></div>
+        <div class="title skeleton"></div>
+        <div class="body skeleton"></div>
+    </aside>
+    <aside class="post skeleton">
+        <div class="name skeleton"></div>
+        <div class="title skeleton"></div>
+        <div class="body skeleton"></div>
+    </aside>
+</body>
+<script>
+    const API_URL = 'https://jsonplaceholder.typicode.com/posts'
+    const max_char_limit = 160
+
+    setTimeout(() => {
+        fetch(API_URL)
+        .then(response => response.json())
+        .then(data => processPosts(data))
+    }, 3 * 1000)
+
+    function processPosts(data) {
+        document.body.innerHTML = ''
+
+        for (post of data) {
+            const { id, title, body } = post
+            document.body.innerHTML += `
+                <aside class="post">
+                    <div class="name">${id}</div>
+                    <div class="title">${title}</div>
+                    <div class="body">${
+                        body.length > max_char_limit ? body.slice(0, max_char_limit) + ' ...' : body
+                    }</div>
+                </aside>
+            `
+        }
+    }
+</script>
+</html>

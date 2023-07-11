@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document (Question 1 Solution)</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        width: 100%;
+        height: 100vh;
+        background-color: #FAF0D7;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .box {
+        width: 300px;
+        height: 300px;
+
+        background-color: #FF6666;
+        transition: all 300ms;
+
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.4);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        text-align: center;
+        font-size: 18px;
+    }
+</style>
+<body>
+    <div class="box">This is a box! Click me to see effect</div>
+</body>
+<script>
+    let alrExpanded = false
+    const boxElement = document.querySelector('.box')
+    boxElement.addEventListener('click', function (event) {
+        if (alrExpanded) return
+        boxElement.style.backgroundColor = '#F2BE22'
+        boxElement.style.width = '600px'
+        boxElement.style.height = '600px'
+        alrExpanded = true
+    })
+</script>
+</html>
